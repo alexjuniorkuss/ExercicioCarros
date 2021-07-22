@@ -19,12 +19,14 @@ namespace ViewConsole
         }
         private void Cadastrar()
         {
-            Console.WriteLine($"Cadastrando {idCar}o Carro");
+            Console.WriteLine($"Cadastrando {idCar}º Carro");
             Carro carroC = new Carro();
             CadastroEdita(carroC);
             carroC.Id = lista.Count() + 1;
+            idCar++;
             lista.Add(carroC);
         }
+            
         private static void CadastroEdita(Carro carro)
         {
             Console.WriteLine("Nome do Carro:");

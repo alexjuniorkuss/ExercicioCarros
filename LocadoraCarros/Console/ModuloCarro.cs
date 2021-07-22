@@ -9,19 +9,27 @@ namespace ViewConsole
     public class ModuloCarro : Tela
     {
         OperacoesCarro crud = new OperacoesCarro();
-        public ModuloCarro(): base("     Produto    ")
+        public ModuloCarro(): base("      Carro     ")
         {
             this.funcaoEscolha = Escolha;
             this.funcaoOpcoes = Opcoes;
         }
         private void Escolha(int escolha)
         {
+            string resp = "";
             Console.Clear();
             this.Cabecalho();
             switch (escolha)
             {
                 case 1:
-                    crud.Create();
+                    do
+                    {
+                         Console.Clear();
+                        this.Cabecalho();
+                        crud.Create();
+                        Console.WriteLine("Deseja Cadastrar mais um Carro?");
+                        resp = Console.ReadLine();
+                    } while (resp == "s");
                     break;
                 case 2:
                     crud.Update();
